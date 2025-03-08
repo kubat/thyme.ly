@@ -15,7 +15,7 @@
         <div class="hero">
             <h1 class="hero-title">Get on time</h1>
             <h2 class="hero-subtitle">in this busy world.</h2>
-            <p>AI powered coordination to simplify your family's daily life.</p>
+            <p class="hero-text">AI powered coordination to simplify your family's daily life.</p>
         </div>
     </div>
 
@@ -28,11 +28,13 @@
         document.addEventListener('DOMContentLoaded', function() {
             const heroTitle = document.querySelector('.hero-title');
             const heroSubtitle = document.querySelector('.hero-subtitle');
+            const heroText = document.querySelector('.hero-text');
             const logo = document.querySelector('.logo');
             
             // Apply fade-in effect
             heroTitle.style.opacity = '0';
             heroSubtitle.style.opacity = '0';
+            heroText.style.opacity = '0';
             logo.style.opacity = '0';
             
             setTimeout(() => {
@@ -45,6 +47,9 @@
                     setTimeout(() => {
                         heroSubtitle.style.transition = 'opacity 1s ease-in-out';
                         heroSubtitle.style.opacity = '1';
+
+                        heroText.style.transition = 'opacity 1s ease-in-out';
+                        heroText.style.opacity = '1';
                     }, 500);
                 }, 300);
             }, 100);
