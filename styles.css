@@ -11,7 +11,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: linear-gradient(135deg, #d4e9d6 0%, #7dcd85 50%, #2e8b57 100%);
+    background: linear-gradient(135deg, #d4e9d6 0%, #68bac9 50%, #498d50 100%);
     color: #333;
     line-height: 1.6;
 }
@@ -30,8 +30,9 @@ body {
 }
 
 .logo {
-    max-width: 200px;
+    max-width: 250px;
     height: auto;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 /* Hero section styles */

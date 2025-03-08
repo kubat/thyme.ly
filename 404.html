@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div class="logo-container">
-            <!-- <img src="logo.png" alt="thyme.ly logo" class="logo"> -->
+            <img src="logo.png" alt="thyme.ly logo" class="logo">
         </div>
         
         <div class="hero">
@@ -29,22 +29,29 @@
     <script>
         // Simple animation for the error elements
         document.addEventListener('DOMContentLoaded', function() {
+            const logo = document.querySelector('.logo');
             const errorCode = document.querySelector('.error-code');
             const errorMessage = document.querySelector('.error-message');
             
             // Apply fade-in effect
+            logo.style.opacity = '0';
             errorCode.style.opacity = '0';
             errorMessage.style.opacity = '0';
             
             setTimeout(() => {
-                errorCode.style.transition = 'opacity 1s ease-in-out';
-                errorCode.style.opacity = '1';
-                
+                logo.style.transition = 'opacity 1s ease-in-out';
+                logo.style.opacity = '1';
+
                 setTimeout(() => {
-                    errorMessage.style.transition = 'opacity 1s ease-in-out';
-                    errorMessage.style.opacity = '1';
-                }, 500);
-            }, 300);
+                    errorCode.style.transition = 'opacity 1s ease-in-out';
+                    errorCode.style.opacity = '1';
+                    
+                    setTimeout(() => {
+                        errorMessage.style.transition = 'opacity 1s ease-in-out';
+                        errorMessage.style.opacity = '1';
+                    }, 500);
+                }, 300);
+            }, 100);
         });
     </script>
 </body>
