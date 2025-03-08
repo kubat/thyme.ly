@@ -38,8 +38,6 @@ body {
 /* Hero section styles */
 .hero {
     margin: 4rem auto;
-    color: #fff;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .hero-title {
@@ -60,7 +58,8 @@ body {
 .hero-text {
     margin-top: 1rem;
     font-weight: 300;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* 404 page specific styles */
