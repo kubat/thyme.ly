@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thyme.ly | Get on time.</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <!-- <img src="logo.png" alt="thyme.ly logo" class="logo"> -->
+        </div>
+        
+        <div class="hero">
+            <h1 class="hero-title">Get on time.</h1>
+            <h2 class="hero-subtitle">in this busy world</h2>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> thyme.ly. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple animation for the hero text
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroTitle = document.querySelector('.hero-title');
+            const heroSubtitle = document.querySelector('.hero-subtitle');
+            
+            // Apply fade-in effect
+            heroTitle.style.opacity = '0';
+            heroSubtitle.style.opacity = '0';
+            
+            setTimeout(() => {
+                heroTitle.style.transition = 'opacity 1s ease-in-out';
+                heroTitle.style.opacity = '1';
+                
+                setTimeout(() => {
+                    heroSubtitle.style.transition = 'opacity 1s ease-in-out';
+                    heroSubtitle.style.opacity = '1';
+                }, 500);
+            }, 300);
+        });
+    </script>
+</body>
+</html>
