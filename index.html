@@ -23,6 +23,7 @@
         <p>&copy; <script>document.write(new Date().getFullYear())</script> thyme.ly. All rights reserved.</p>
     </footer>
 
+    <script src="script.js"></script>
     <script>
         // Simple animation for the hero text
         document.addEventListener('DOMContentLoaded', function() {
@@ -31,28 +32,13 @@
             const heroText = document.querySelector('.hero-text');
             const logo = document.querySelector('.logo');
             
-            // Apply fade-in effect
-            heroTitle.style.opacity = '0';
-            heroSubtitle.style.opacity = '0';
-            heroText.style.opacity = '0';
-            logo.style.opacity = '0';
-            
-            setTimeout(() => {
-                logo.style.transition = 'opacity 1s ease-in-out';
-                logo.style.opacity = '1';
-                setTimeout(() => {
-                    heroTitle.style.transition = 'opacity 1s ease-in-out';
-                    heroTitle.style.opacity = '1';
-                    
-                    setTimeout(() => {
-                        heroSubtitle.style.transition = 'opacity 1s ease-in-out';
-                        heroSubtitle.style.opacity = '1';
-
-                        heroText.style.transition = 'opacity 1s ease-in-out';
-                        heroText.style.opacity = '1';
-                    }, 500);
-                }, 300);
-            }, 100);
+            // Apply fade-in effect using shared function
+            fadeInSequence([
+                { element: logo, delay: 0 },
+                { element: heroTitle, delay: 300 },
+                { element: heroSubtitle, delay: 500 },
+                { element: heroText, delay: 500 }
+            ]);
         });
     </script>
 </body>

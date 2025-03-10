@@ -15,8 +15,8 @@
         <div class="hero">
             <div class="error-code">404</div>
             <h1 class="error-message">Time got away from us.</h1>
-            <p>The page you're looking for doesn't exist or has been moved.</p>
-            <div style="margin-top: 2rem;">
+            <p class="error-description">The page you're looking for doesn't exist or has been moved.</p>
+            <div class="button-container" style="margin-top: 2rem;">
                 <a href="/" class="back-home">Back to Homepage</a>
             </div>
         </div>
@@ -26,32 +26,24 @@
         <p>&copy; <script>document.write(new Date().getFullYear())</script> thyme.ly. All rights reserved.</p>
     </footer>
 
+    <script src="script.js"></script>
     <script>
         // Simple animation for the error elements
         document.addEventListener('DOMContentLoaded', function() {
             const logo = document.querySelector('.logo');
             const errorCode = document.querySelector('.error-code');
             const errorMessage = document.querySelector('.error-message');
+            const errorDescription = document.querySelector('.error-description');
+            const buttonContainer = document.querySelector('.button-container');
             
-            // Apply fade-in effect
-            logo.style.opacity = '0';
-            errorCode.style.opacity = '0';
-            errorMessage.style.opacity = '0';
-            
-            setTimeout(() => {
-                logo.style.transition = 'opacity 1s ease-in-out';
-                logo.style.opacity = '1';
-
-                setTimeout(() => {
-                    errorCode.style.transition = 'opacity 1s ease-in-out';
-                    errorCode.style.opacity = '1';
-                    
-                    setTimeout(() => {
-                        errorMessage.style.transition = 'opacity 1s ease-in-out';
-                        errorMessage.style.opacity = '1';
-                    }, 500);
-                }, 300);
-            }, 100);
+            // Apply fade-in effect using shared function
+            fadeInSequence([
+                { element: logo, delay: 0 },
+                { element: errorCode, delay: 300 },
+                { element: errorMessage, delay: 500 },
+                { element: errorDescription, delay: 700 },
+                { element: buttonContainer, delay: 900 }
+            ]);
         });
     </script>
 </body>
