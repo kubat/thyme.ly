@@ -19,14 +19,16 @@ function fadeInSequence(elements) {
         item.element.style.opacity = '0';
     });
 
-    // Base delay before starting animations
-    const baseDelay = 100;
-    
-    // Animate each element with its specific delay
+    // Start immediately
+    let cumulativeDelay = 0;
+
+    // Animate each element with cumulative delay
     elements.forEach(item => {
+        cumulativeDelay += item.delay;
+        const elementDelay = cumulativeDelay;
         setTimeout(() => {
             item.element.style.transition = 'opacity 1s ease-in-out';
             item.element.style.opacity = '1';
-        }, baseDelay + item.delay);
+        }, elementDelay);
     });
 }

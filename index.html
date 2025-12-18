@@ -3,20 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>thyme.ly | Get on time.</title>
+    <title>thyme.ly | All the small stuff.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <div class="logo-container">
-            <img src="logo.png" alt="thyme.ly logo" class="logo">
+            <img src="thymely-logo.svg" alt="thyme.ly logo" class="logo">
         </div>
-        
+
         <div class="hero">
-            <h1 class="hero-title">Get on time</h1>
-            <h2 class="hero-subtitle">in this busy world.</h2>
-            <p class="hero-text">AI powered coordination to simplify your family's daily life.</p>
+            <h1 class="hero-title">all of your family's...</h1>
+            <ul class="w-words">
+                <li class="w-word">WHO</li>
+                <li class="w-word">WHAT</li>
+                <li class="w-word">WHEN</li>
+                <li class="w-word">WHERE</li>
+                <li class="w-word">WHY</li>
+            </ul>
+            <h2 class="hero-subtitle">...all in one place.</h2>
         </div>
+
+        <div class="mission-banner">
+            <div class="mission-line mission-line-top">
+                <p><strong>Thyme.ly</strong> is on a <strong>mission</strong> to</p>
+            </div>
+            <div class="mission-line mission-line-bottom">
+                <p><strong>off-load mental load</strong> using <strong>AI</strong>.</p>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <a href="#" class="contact-link" data-name="info" data-domain="thyme.ly">Contact Us</a>
+        </div>
+
+        <!-- <div class="blog-section"> -->
+            <!-- <p class="blog-label">VISIT OUR SUBSTACK AT</p> -->
+            <!-- <a href="https://onebigmentalload.substack.com" target="_blank" rel="noopener noreferrer"> -->
+                <!-- <img src="blog-logo.svg" alt="one BIG MENTAL load" class="blog-logo"> -->
+            <!-- </a> -->
+        <!-- </div> -->
     </div>
 
     <footer>
@@ -25,20 +54,27 @@
 
     <script src="script.js"></script>
     <script>
-        // Simple animation for the hero text
         document.addEventListener('DOMContentLoaded', function() {
-            const heroTitle = document.querySelector('.hero-title');
-            const heroSubtitle = document.querySelector('.hero-subtitle');
-            const heroText = document.querySelector('.hero-text');
-            const logo = document.querySelector('.logo');
-            
-            // Apply fade-in effect using shared function
-            fadeInSequence([
-                { element: logo, delay: 0 },
-                { element: heroTitle, delay: 300 },
-                { element: heroSubtitle, delay: 500 },
-                { element: heroText, delay: 500 }
-            ]);
+            const wWords = document.querySelectorAll('.w-word');
+
+            // Only animate W-words with slow staggered fade-in
+            const sequence = [];
+            wWords.forEach((word, index) => {
+                sequence.push({ element: word, delay: 400 });
+            });
+
+            fadeInSequence(sequence);
+
+            // Obfuscated email - assembled on click to confuse scrapers
+            const contactLink = document.querySelector('.contact-link');
+            if (contactLink) {
+                contactLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const n = this.dataset.name;
+                    const d = this.dataset.domain;
+                    window.location.href = 'mai' + 'lto:' + n + '@' + d;
+                });
+            }
         });
     </script>
 </body>
