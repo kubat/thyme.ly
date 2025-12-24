@@ -125,6 +125,75 @@ body {
     margin: 3rem 0 2rem;
 }
 
+.contact-section p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 300px;
+    margin: 0 auto 1.5rem;
+}
+
+.contact-section input {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    border: 2px solid var(--mid-purple);
+    border-radius: 4px;
+    background: #fff;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.contact-section input:focus {
+    outline: none;
+    border-color: var(--dark-purple);
+}
+
+.contact-section input.error {
+    border-color: #c53030;
+}
+
+.contact-section input.honeypot {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.contact-section input::placeholder {
+    color: #999;
+}
+
+.contact-section button {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.6rem 1rem;
+    border: 2px solid var(--dark-purple);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--dark-purple);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-section button:hover {
+    background-color: var(--dark-purple);
+    color: #fff;
+}
+
+.contact-section button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 .contact-link {
     font-family: 'Raleway', sans-serif;
     font-size: 1.1rem;

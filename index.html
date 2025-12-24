@@ -37,7 +37,12 @@
         </div>
 
         <div class="contact-section">
-            <a href="#" class="contact-link" data-name="info" data-domain="thyme.ly">Contact Us</a>
+            <form>
+                <input name="Name" type="text" placeholder="Name (optional)">
+                <input name="Email" type="email" placeholder="Email" required>
+                <input name="website" type="text" class="honeypot" tabindex="-1" autocomplete="off">
+                <button type="submit">Sign up for updates</button>
+            </form>
         </div>
 
         <!-- <div class="blog-section"> -->
@@ -49,7 +54,11 @@
     </div>
 
     <footer>
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> thyme.ly. All rights reserved.</p>
+        <p>
+            &copy; <script>document.write(new Date().getFullYear())</script> thyme.ly. All rights reserved.
+            <a href="#" data-name="info" data-domain="thyme.ly" rel="noopener noreferrer">Contact Us</a>
+        </p>
+
     </footer>
 
     <script src="script.js"></script>
@@ -73,6 +82,40 @@
                     const n = this.dataset.name;
                     const d = this.dataset.domain;
                     window.location.href = 'mai' + 'lto:' + n + '@' + d;
+                });
+            }
+
+            // Handle form submission without redirect
+            const FORM_DESTINATION = 'https://script.google.com/macros/s/AKfycbz9PCUoEmHxpngFCJEhqr3W0YHMhAGkz1KnAWdgAdqUOv8gOZu6ya3Y0-4WleSkY-nq/exec';
+            const form = document.querySelector('.contact-section form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const formData = new FormData(form);
+                    const button = form.querySelector('button[type="submit"]');
+                    const originalText = button.textContent;
+                    button.textContent = 'Signing up...';
+                    button.disabled = true;
+
+                    fetch(FORM_DESTINATION, {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(function() {
+                        button.textContent = 'Thanks!';
+                        form.reset();
+                        setTimeout(function() {
+                            button.textContent = originalText;
+                            button.disabled = false;
+                        }, 2000);
+                    })
+                    .catch(function() {
+                        button.textContent = 'Error';
+                        setTimeout(function() {
+                            button.textContent = originalText;
+                            button.disabled = false;
+                        }, 2000);
+                    });
                 });
             }
         });
