@@ -132,6 +132,13 @@ body {
     margin-bottom: 1rem;
 }
 
+.contact-section .contact-note {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+}
+
 .contact-section form {
     display: flex;
     flex-direction: column;
